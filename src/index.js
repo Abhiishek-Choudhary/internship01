@@ -3,11 +3,14 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { GoogleOAuthProvider } from '@react-oauth/google';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <GoogleOAuthProvider clientId='326323254173-1r55p7gqo37git71mmue24lq0t0v39k9.apps.googleusercontent.com'>
+         <App />
+    </GoogleOAuthProvider>
   </React.StrictMode>
 );
 
