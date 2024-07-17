@@ -45,8 +45,8 @@ function Register({ setState }) {
           </h2>
         </div>
         <p className="text-orange-600 ml-4 mb-2">Policy </p>
-        <button className="bg-orange-500 rounded-full shadow-lg w-full mt-4 p-2 text-white">
-          Sign in
+        <button className="bg-orange-500 rounded-full shadow-lg w-full mt-4 p-2 text-white" onClick={handleLogin}>
+          Register
         </button>
       </div>
       <p className="mx-20 mb-2 text-gray-600">------ or sign in with ------</p>

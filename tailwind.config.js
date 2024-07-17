@@ -6,9 +6,21 @@ module.exports = {
   theme: {
     screens: {
       'tablet': {'max': '639px'},
-      'laptop': {'min': '1000px'},
+      'laptop': {'min': '640px'},
     },
     extend: {},
   },
-  plugins: [],
+  plugins: [
+    function ({ addUtilities }) {
+      addUtilities({
+        '.no-scrollbar': {
+          '-ms-overflow-style': 'none',  /* IE and Edge */
+          'scrollbar-width': 'none',     /* Firefox */
+          '&::-webkit-scrollbar': {
+            display: 'none',             /* Chrome, Safari, and Opera */
+          },
+        },
+      }, ['responsive']);
+    },
+  ],
 }
