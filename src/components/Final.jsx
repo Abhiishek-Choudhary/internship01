@@ -1,10 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import HorizontalRuleIcon from '@mui/icons-material/HorizontalRule';
+import TrackingPage from "./TrackingPage";
 
+function Final({ setSuccess }) {
 
-function Final() {
+  const[tracking, setTracking] = useState(false);
+
+  const handleClick = () => {
+    setTimeout(() => {
+       setSuccess(false)
+    });
+  }
+
+  const handleSubmit = () => {
+    setTimeout(() => {
+       setTracking(true);
+    });
+  }
+
   return (
-    <div className="relative">
+    <>
+    {  
+      tracking ? <TrackingPage /> : <div className="relative">
       <div>
         <img
           className=" h-[100vh] w-[100vw] laptop:hidden"
@@ -27,12 +44,14 @@ function Final() {
         <h1 className="text-2xl text-center mt-4">
           <b>Login Sucessful</b>
         </h1>
-        <button className="bg-orange-500 rounded-full shadow-lg w-60 ml-6 mt-6 p-2 text-white">
+        <button className="bg-orange-500 rounded-full shadow-lg w-60 ml-6 mt-6 p-2 text-white" onClick={handleSubmit}>
             Go to Tracking Screen
         </button>
-        <h1 className="text-gray-400 text-center mt-3 cursor-pointer">Logout</h1>
+        <h1 className="text-gray-400 text-center mt-3 cursor-pointer" onClick={handleClick}>Logout</h1>
       </div>
-    </div>
+    </div> 
+    }
+    </>
   );
 }
 

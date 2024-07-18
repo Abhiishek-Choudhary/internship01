@@ -2,15 +2,13 @@ import React from "react";
 import { useState } from "react";
 import { GoogleLogin } from "@react-oauth/google";
 import Register from "./Register";
+import Final from "./Final";
 // import jwt_decode from "jwt-decode";
 
 function Login() {
   const [state, setState] = useState(true);
-  // const [success, setSuccess] = useState(false);
+  const [success, setSuccess] = useState(false);
 
-  // const handleSuccess = () => {
-  //   setSuccess(true);
-  // }
 
   const handleLogin = () => {
     setTimeout(() => {
@@ -18,9 +16,15 @@ function Login() {
     });
   };
 
+  const handleClick = () => {
+    setTimeout(() => {
+      setSuccess(true);
+    });
+  }
+
   return (
     <>
-      {state ? (
+      {success ? <Final setSuccess={setSuccess}/> :  state ? (
         <div className=" border-2 border-gray-500 w-96 m-auto mt-24 px-4 py-8  ">
           <h1 className="text-3xl mr-4">
             <b>Login to your account</b>
@@ -44,7 +48,7 @@ function Login() {
             <p className="ml-56 text-orange-600">
               <a href="/">forgot password?</a>
             </p>
-            <button className="bg-orange-500 rounded-full shadow-lg w-full mt-4 p-2 text-white">
+            <button className="bg-orange-500 rounded-full shadow-lg w-full mt-4 p-2 text-white" onClick={handleClick}>
               Sign in
             </button>
           </div>
