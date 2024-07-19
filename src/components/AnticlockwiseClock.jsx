@@ -1,6 +1,13 @@
 import React, { useState, useEffect } from 'react';
 
 const AnticlockwiseClock = () => {
+
+  // const [speed, setSpeed] = useState(false);
+
+  // const handleChange = () => {
+  //    setSpeed(true);
+  // }
+
   const [currentTime, setCurrentTime] = useState(new Date());
   const [initialTime, setInitialTime] = useState(new Date(currentTime.getTime() - 120 * 60000)); // 120 minutes earlier
 
