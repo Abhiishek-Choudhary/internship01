@@ -1,12 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-const AnticlockwiseClock = () => {
-
-  // const [speed, setSpeed] = useState(false);
-
-  // const handleChange = () => {
-  //    setSpeed(true);
-  // }
+const AnticlockwiseClock = ({speed}) => {
 
   const [currentTime, setCurrentTime] = useState(new Date());
   const [initialTime, setInitialTime] = useState(new Date(currentTime.getTime() - 120 * 60000)); // 120 minutes earlier
@@ -14,10 +8,10 @@ const AnticlockwiseClock = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setInitialTime(prevTime => new Date(prevTime.getTime() - 1000)); // Decrement by 1 second
-    }, 1000); // Update every second
+    },speed); // Update every second
 
     return () => clearInterval(interval);
-  }, []);
+  },[speed]);
 
   const getClockRotation = (time) => {
     const seconds = time.getSeconds();
